@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import Header from './components/Header';
-import ContentTypeTabs from './components/ContentTypeTabs';
-import TextInput from './components/TextInput';
-import UrlInput from './components/UrlInput';
-import WiFiInput from './components/WiFiInput';
-import QrOptionsPanel from './components/QrOptionsPanel';
+import ContentPanel from './components/ContentPanel';
 import PreviewPanel from './components/PreviewPanel';
 import { QrState, DEFAULT_STATE } from './types';
 
@@ -34,31 +30,13 @@ function App() {
       <Header />
       <main className="flex flex-col md:flex-row">
         <div className="flex-1 p-8 border-r border-gray-100">
-          <ContentTypeTabs
-            active={state.contentType}
-            onChange={(contentType) => updateState({ contentType })}
-          />
-          {state.contentType === 'text' && (
-            <TextInput
-              value={state.text}
-              onChange={(text) => updateState({ text })}
-            />
-          )}
-          {state.contentType === 'url' && (
-            <UrlInput
-              value={state.url}
-              onChange={(url) => updateState({ url })}
-            />
-          )}
-          {state.contentType === 'wifi' && (
-            <WiFiInput
-              value={state.wifi}
-              onChange={updateWifi}
-            />
-          )}
-          <QrOptionsPanel
-            value={state.options}
-            onChange={updateOptions}
+          <ContentPanel
+            state={state}
+            onContentTypeChange={(contentType) => updateState({ contentType })}
+            onTextChange={(text) => updateState({ text })}
+            onUrlChange={(url) => updateState({ url })}
+            onWifiChange={updateWifi}
+            onOptionsChange={updateOptions}
           />
         </div>
         <div className="flex-1 p-8 bg-gray-50 flex flex-col items-center justify-center min-h-[400px]">
