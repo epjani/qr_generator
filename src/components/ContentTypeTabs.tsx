@@ -1,4 +1,4 @@
-import { ContentType } from '../types';
+import type { ContentType } from '../types';
 
 const tabs: { value: ContentType; label: string }[] = [
   { value: 'text', label: 'Text' },

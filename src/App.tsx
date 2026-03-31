@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Header from './components/Header';
 import ContentPanel from './components/ContentPanel';
 import PreviewPanel from './components/PreviewPanel';
-import { QrState, DEFAULT_STATE } from './types';
+import type { QrState } from './types';
+import { DEFAULT_STATE } from './types';
 
 function App() {
   const [state, setState] = useState<QrState>(DEFAULT_STATE);

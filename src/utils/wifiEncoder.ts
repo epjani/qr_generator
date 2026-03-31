@@ -1,4 +1,4 @@
-import { WifiConfig } from '../types';
+import type { WifiConfig } from '../types';
 
 export function encodeWifi(config: WifiConfig): string {
   const type = config.encryption;

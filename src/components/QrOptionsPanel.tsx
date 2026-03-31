@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { QrOptions } from '../types';
+import type { QrOptions } from '../types';
 
 interface Props {
   value: QrOptions;

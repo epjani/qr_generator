@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { WifiConfig } from '../types';
+import type { WifiConfig } from '../types';
 
 interface Props {
   value: WifiConfig;

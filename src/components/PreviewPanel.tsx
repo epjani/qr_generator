@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
-import { QrState } from '../types';
+import type { QrState } from '../types';
 import { encodeWifi } from '../utils/wifiEncoder';
 import { downloadPng, downloadSvg } from '../utils/download';
 

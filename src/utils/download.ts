@@ -1,4 +1,4 @@
-import { ContentType } from '../types';
+import type { ContentType } from '../types';
 
 function buildFilename(contentType: ContentType, ext: string): string {
   const timestamp = Date.now();

@@ -1,4 +1,4 @@
-import { QrState, ContentType, WifiConfig, QrOptions } from '../types';
+import type { QrState, ContentType, WifiConfig, QrOptions } from '../types';
 import ContentTypeTabs from './ContentTypeTabs';
 import TextInput from './TextInput';
 import UrlInput from './UrlInput';
