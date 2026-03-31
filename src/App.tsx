@@ -5,6 +5,7 @@ import TextInput from './components/TextInput';
 import UrlInput from './components/UrlInput';
 import WiFiInput from './components/WiFiInput';
 import QrOptionsPanel from './components/QrOptionsPanel';
+import PreviewPanel from './components/PreviewPanel';
 import { QrState, DEFAULT_STATE } from './types';
 
 function App() {
@@ -61,8 +62,7 @@ function App() {
           />
         </div>
         <div className="flex-1 p-8 bg-gray-50 flex flex-col items-center justify-center min-h-[400px]">
-          {/* PreviewPanel will go here */}
-          <p className="text-gray-400">Preview panel placeholder</p>
+          <PreviewPanel state={state} />
         </div>
       </main>
     </div>
