@@ -10,22 +10,22 @@ export default function WiFiInput({ value, onChange }: Props) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div>
-        <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide block mb-1.5">
+        <label className="text-xs font-display font-semibold text-neon-purple-light uppercase tracking-widest block mb-2">
           Network Name (SSID)
         </label>
         <input
           type="text"
           value={value.ssid}
           onChange={(e) => onChange({ ssid: e.target.value })}
-          placeholder="MyNetwork"
-          className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="> MyNetwork"
+          className="input-retro w-full rounded-lg px-4 py-3 text-sm"
         />
       </div>
 
       <div>
-        <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide block mb-1.5">
+        <label className="text-xs font-display font-semibold text-neon-purple-light uppercase tracking-widest block mb-2">
           Password
         </label>
         <div className="relative">
@@ -33,13 +33,13 @@ export default function WiFiInput({ value, onChange }: Props) {
             type={showPassword ? 'text' : 'password'}
             value={value.password}
             onChange={(e) => onChange({ password: e.target.value })}
-            placeholder="Enter password"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 pr-16 text-sm text-gray-800 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="> Enter password"
+            className="input-retro w-full rounded-lg px-4 py-3 pr-20 text-sm"
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 px-2 py-1 text-xs text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1 text-xs font-display font-semibold uppercase tracking-wider text-neon-cyan hover:text-neon-cyan/80 transition-colors cursor-pointer"
           >
             {showPassword ? 'Hide' : 'Show'}
           </button>
@@ -47,13 +47,13 @@ export default function WiFiInput({ value, onChange }: Props) {
       </div>
 
       <div>
-        <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide block mb-1.5">
+        <label className="text-xs font-display font-semibold text-neon-purple-light uppercase tracking-widest block mb-2">
           Encryption
         </label>
         <select
           value={value.encryption}
           onChange={(e) => onChange({ encryption: e.target.value as WifiConfig['encryption'] })}
-          className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="input-retro w-full rounded-lg px-4 py-3 text-sm"
         >
           <option value="WPA">WPA/WPA2</option>
           <option value="WEP">WEP</option>
@@ -61,14 +61,16 @@ export default function WiFiInput({ value, onChange }: Props) {
         </select>
       </div>
 
-      <label className="flex items-center gap-2 cursor-pointer">
+      <label className="flex items-center gap-3 cursor-pointer group">
         <input
           type="checkbox"
           checked={value.hidden}
           onChange={(e) => onChange({ hidden: e.target.checked })}
-          className="rounded border-gray-300 text-blue-500 focus:ring-blue-500"
+          className="w-4 h-4 rounded border-border-subtle"
         />
-        <span className="text-sm text-gray-600">Hidden network</span>
+        <span className="text-sm text-fg-muted group-hover:text-fg transition-colors">
+          Hidden network
+        </span>
       </label>
     </div>
   );

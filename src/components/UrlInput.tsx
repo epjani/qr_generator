@@ -10,28 +10,28 @@ export default function UrlInput({ value, onChange }: Props) {
 
   return (
     <div>
-      <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide block mb-1.5">
+      <label className="text-xs font-display font-semibold text-neon-purple-light uppercase tracking-widest block mb-2">
         URL
       </label>
       <input
         type="url"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="https://example.com"
-        className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-          isInvalid ? 'border-amber-400' : 'border-gray-200'
+        placeholder="> https://example.com"
+        className={`input-retro w-full rounded-lg px-4 py-3 text-sm ${
+          isInvalid ? 'border-neon-pink/60 shadow-[0_0_10px_rgba(255,0,110,0.15)]' : ''
         }`}
       />
       {isInvalid && (
-        <p className="text-xs text-amber-500 mt-1">
-          This doesn't look like a valid URL
+        <p className="text-xs text-neon-pink mt-1.5 font-mono neon-text-pink">
+          // ERROR: Invalid URL format
         </p>
       )}
       <button
         onClick={() => onChange(generateRandomUrl())}
-        className="mt-2 px-3.5 py-1.5 text-xs bg-gray-100 border border-gray-200 rounded-md text-gray-500 hover:bg-gray-200 transition-colors"
+        className="btn-neon mt-3 px-4 py-2 text-xs font-display font-semibold uppercase tracking-wider bg-card-elevated border border-border-subtle rounded-lg text-neon-cyan hover:border-neon-cyan/40 hover:shadow-[0_0_10px_rgba(0,255,255,0.15)] transition-all cursor-pointer"
       >
-        Generate Random
+        Randomize
       </button>
     </div>
   );
