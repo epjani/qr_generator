@@ -3,6 +3,7 @@ import Header from './components/Header';
 import ContentTypeTabs from './components/ContentTypeTabs';
 import TextInput from './components/TextInput';
 import UrlInput from './components/UrlInput';
+import WiFiInput from './components/WiFiInput';
 import { QrState, DEFAULT_STATE } from './types';
 
 function App() {
@@ -48,7 +49,10 @@ function App() {
             />
           )}
           {state.contentType === 'wifi' && (
-            <p className="text-gray-400">WiFi input placeholder</p>
+            <WiFiInput
+              value={state.wifi}
+              onChange={updateWifi}
+            />
           )}
         </div>
         <div className="flex-1 p-8 bg-gray-50 flex flex-col items-center justify-center min-h-[400px]">
