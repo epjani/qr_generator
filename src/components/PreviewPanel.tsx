@@ -41,32 +41,24 @@ export default function PreviewPanel({ state }: Props) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-4">
-      {/* Status HUD */}
-      <div className="mb-6 flex items-center gap-3 font-mono text-xs text-fg-dim">
-        <span className="w-2 h-2 rounded-full bg-neon-green shadow-[0_0_6px_rgba(0,255,136,0.6)] animate-pulse" />
-        <span className="uppercase tracking-widest">
-          Live Preview &mdash; {state.contentType}
-        </span>
-      </div>
+    <div className="bg-surface rounded-xl border border-border p-6 shadow-sm flex flex-col items-center w-full lg:max-w-sm">
+      <p className="text-xs font-medium text-fg-muted mb-4 uppercase tracking-wide">
+        Preview
+      </p>
 
-      {/* 3D Floating QR Code */}
-      <div className="float-3d pulse-ring">
-        <div className="qr-frame rounded-2xl">
-          <div
-            className="rounded-xl p-4 bg-card border border-border-subtle"
-            ref={svgRef}
-          >
-            <QRCodeSVG
-              value={value}
-              size={size}
-              level={errorCorrection}
-              fgColor={fgColor}
-              bgColor={bgColor}
-              marginSize={margin}
-            />
-          </div>
-        </div>
+      {/* QR Code */}
+      <div
+        className="rounded-lg border border-border p-3 bg-white"
+        ref={svgRef}
+      >
+        <QRCodeSVG
+          value={value}
+          size={size}
+          level={errorCorrection}
+          fgColor={fgColor}
+          bgColor={bgColor}
+          marginSize={margin}
+        />
       </div>
 
       {/* Hidden canvas for PNG export */}
@@ -82,23 +74,20 @@ export default function PreviewPanel({ state }: Props) {
       </div>
 
       {/* Download Buttons */}
-      <div className="flex gap-3 mt-8">
+      <div className="flex gap-3 mt-6 w-full">
         <button
           onClick={handleDownloadPng}
-          className="btn-neon px-6 py-2.5 text-sm font-display font-bold uppercase tracking-wider bg-neon-purple text-white rounded-lg hover:shadow-[0_0_20px_rgba(124,58,237,0.5)] transition-all cursor-pointer"
+          className="flex-1 px-4 py-2.5 text-sm font-medium bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors cursor-pointer"
         >
           Download PNG
         </button>
         <button
           onClick={handleDownloadSvg}
-          className="btn-neon px-6 py-2.5 text-sm font-display font-bold uppercase tracking-wider bg-transparent text-neon-cyan border border-neon-cyan/40 rounded-lg hover:bg-neon-cyan/10 hover:shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all cursor-pointer"
+          className="flex-1 px-4 py-2.5 text-sm font-medium text-fg border border-border rounded-lg hover:bg-bg-tertiary transition-colors cursor-pointer"
         >
           Download SVG
         </button>
       </div>
-
-      {/* Decorative bottom line */}
-      <div className="mt-8 w-48 h-px bg-gradient-to-r from-transparent via-neon-purple/30 to-transparent" />
     </div>
   );
 }

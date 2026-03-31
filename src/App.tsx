@@ -27,22 +27,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-dvh bg-void relative overflow-hidden scanlines">
-      {/* Ambient glow orbs */}
-      <div className="glow-orb glow-orb-1" />
-      <div className="glow-orb glow-orb-2" />
-      <div className="glow-orb glow-orb-3" />
-
-      {/* Retro perspective grid floor */}
-      <div className="retro-grid" />
-
-      {/* Content */}
-      <div className="relative z-10">
+    <div className="min-h-dvh bg-bg-secondary">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <Header />
-        <main className="flex flex-col lg:flex-row max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 gap-8">
+        <main className="flex flex-col lg:flex-row gap-8">
           {/* Left: Controls */}
-          <div className="flex-1 lg:max-w-xl">
-            <div className="card-3d bg-surface backdrop-blur-xl border border-border-subtle rounded-2xl p-6 sm:p-8 hud-corners">
+          <div className="flex-1 lg:max-w-lg">
+            <div className="bg-surface rounded-xl border border-border p-6 shadow-sm">
               <ContentPanel
                 state={state}
                 onContentTypeChange={(contentType) => updateState({ contentType })}
