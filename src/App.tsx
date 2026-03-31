@@ -4,6 +4,7 @@ import ContentTypeTabs from './components/ContentTypeTabs';
 import TextInput from './components/TextInput';
 import UrlInput from './components/UrlInput';
 import WiFiInput from './components/WiFiInput';
+import QrOptionsPanel from './components/QrOptionsPanel';
 import { QrState, DEFAULT_STATE } from './types';
 
 function App() {
@@ -54,6 +55,10 @@ function App() {
               onChange={updateWifi}
             />
           )}
+          <QrOptionsPanel
+            value={state.options}
+            onChange={updateOptions}
+          />
         </div>
         <div className="flex-1 p-8 bg-gray-50 flex flex-col items-center justify-center min-h-[400px]">
           {/* PreviewPanel will go here */}
