@@ -6,6 +6,7 @@ import { downloadPng, downloadSvg } from '../utils/download';
 
 interface Props {
   state: QrState;
+  canvasContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 function getQrValue(state: QrState): string {
@@ -19,15 +20,14 @@ function getQrValue(state: QrState): string {
   }
 }
 
-export default function PreviewPanel({ state }: Props) {
+export default function PreviewPanel({ state, canvasContainerRef }: Props) {
   const svgRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLDivElement>(null);
 
   const value = getQrValue(state);
   const { errorCorrection, fgColor, bgColor, margin, size } = state.options;
 
   const handleDownloadPng = () => {
-    const canvas = canvasRef.current?.querySelector('canvas');
+    const canvas = canvasContainerRef.current?.querySelector('canvas');
     if (canvas) {
       downloadPng(canvas, state.contentType);
     }
@@ -61,8 +61,8 @@ export default function PreviewPanel({ state }: Props) {
         />
       </div>
 
-      {/* Hidden canvas for PNG export */}
-      <div className="hidden" ref={canvasRef}>
+      {/* Hidden canvas for PNG export + history thumbnails */}
+      <div className="hidden" ref={canvasContainerRef}>
         <QRCodeCanvas
           value={value}
           size={size}

@@ -23,6 +23,15 @@ export interface QrState {
   options: QrOptions;
 }
 
+export interface HistoryEntry {
+  id: string;
+  label: string;
+  contentType: ContentType;
+  state: QrState;
+  timestamp: number;
+  thumbnail: string;
+}
+
 export const DEFAULT_STATE: QrState = {
   contentType: 'text',
   text: '',
