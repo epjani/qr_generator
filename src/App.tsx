@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import ContentTypeTabs from './components/ContentTypeTabs';
+import TextInput from './components/TextInput';
 import { QrState, DEFAULT_STATE } from './types';
 
 function App() {
@@ -33,7 +34,18 @@ function App() {
             active={state.contentType}
             onChange={(contentType) => updateState({ contentType })}
           />
-          <p className="text-gray-400">Input for {state.contentType} goes here</p>
+          {state.contentType === 'text' && (
+            <TextInput
+              value={state.text}
+              onChange={(text) => updateState({ text })}
+            />
+          )}
+          {state.contentType === 'url' && (
+            <p className="text-gray-400">URL input placeholder</p>
+          )}
+          {state.contentType === 'wifi' && (
+            <p className="text-gray-400">WiFi input placeholder</p>
+          )}
         </div>
         <div className="flex-1 p-8 bg-gray-50 flex flex-col items-center justify-center min-h-[400px]">
           {/* PreviewPanel will go here */}
