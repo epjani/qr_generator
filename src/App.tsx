@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import ContentTypeTabs from './components/ContentTypeTabs';
 import TextInput from './components/TextInput';
+import UrlInput from './components/UrlInput';
 import { QrState, DEFAULT_STATE } from './types';
 
 function App() {
@@ -41,7 +42,10 @@ function App() {
             />
           )}
           {state.contentType === 'url' && (
-            <p className="text-gray-400">URL input placeholder</p>
+            <UrlInput
+              value={state.url}
+              onChange={(url) => updateState({ url })}
+            />
           )}
           {state.contentType === 'wifi' && (
             <p className="text-gray-400">WiFi input placeholder</p>
